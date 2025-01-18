@@ -1,10 +1,31 @@
 package com.unicorn.leetcode.map;
 
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 import java.util.SortedSet;
 
 public class Anagram {
+
+    public boolean isAnagram1(String s, String t) {
+
+        Map<Character, Integer> map = new HashMap<>();
+        for(char c: s.toCharArray()){
+            map.put(c, map.getOrDefault(c, 0).intValue()+1);
+        }
+        for(char c: t.toCharArray()){
+            if(!map.containsKey(c)) return false;
+            map.put(c, map.get(c).intValue()-1);
+        }
+        for(int r: map.values()){
+            if(r != 0) return false;
+        }
+
+        return true;
+
+
+    }
 
     public boolean isAnagram(String s, String t) {
 

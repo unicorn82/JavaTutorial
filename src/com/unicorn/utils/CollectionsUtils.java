@@ -1,5 +1,7 @@
 package com.unicorn.utils;
 
+import java.util.List;
+
 public class CollectionsUtils  {
 
     public  static void printArray(int[] arrays){
@@ -9,7 +11,14 @@ public class CollectionsUtils  {
 
         }
         System.out.println("");
+    }
 
+    public static <T> void printList(List<T> list1){
+        for(int i=0;i<list1.size();i++){
+            T s = list1.get(i);
+            System.out.print(s+";");
+        }
+        System.out.println("");
 
     }
 }
